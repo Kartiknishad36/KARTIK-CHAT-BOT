@@ -75,10 +75,10 @@ async def shayri(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "• sᴜᴘᴘᴏꝛᴛ •", url=f"https://t.me/DNS_NETWORK"
+                        "• sᴜᴘᴘᴏꝛᴛ •", url=f"https://t.me/KARTIK_X_UPDATE"
                     ),
                     InlineKeyboardButton(
-                        "• ᴜᴘᴅᴧᴛᴇ •", url=f"https://t.me/Dns_Official_Channel"
+                        "• ᴜᴘᴅᴧᴛᴇ •", url=f"https://t.me/KARTIK_X_UPDATE"
                     ),
                 ]
             ]
