@@ -32,6 +32,6 @@
 
 
 ### Contact:
-<a href="https://t.me/DNS_NETWORK">
+<a href="https://t.me/KARTIK_X_UPDATE">
     <img title="Telegram" src="https://img.shields.io/badge/Telegram-%23000000.svg?&style=for-the-badge&logo=telegram&logoColor=61DAFB">
 </a>
