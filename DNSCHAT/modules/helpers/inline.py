@@ -132,7 +132,7 @@ HELP_BUTN = [
 
 ABOUT_BTN = [
     [
-        InlineKeyboardButton(text="🎄 sᴜᴘᴘᴏʀᴛ 🎄", url=f"https://t.me/DNS_NETWORK"),
+        InlineKeyboardButton(text="🎄 sᴜᴘᴘᴏʀᴛ 🎄", "https://t.me/KARTIK_X_UPDATE"),
         InlineKeyboardButton(text="« ʜᴇʟᴘ »", callback_data="HELP"),
     ],
     [
@@ -140,7 +140,7 @@ ABOUT_BTN = [
         #   InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
     ],
     [
-        InlineKeyboardButton(text="🐳 ᴜᴘᴅᴀᴛᴇs 🐳", url=f"https://t.me/Dns_Official_Channel"),
+        InlineKeyboardButton(text="🐳 ᴜᴘᴅᴀᴛᴇs 🐳", url=f"https://t.me/KARTIK_X_UPDATE"),
         InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK"),
     ],
 ]
