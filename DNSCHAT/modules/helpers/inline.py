@@ -1,146 +1,85 @@
 from pyrogram.types import InlineKeyboardButton
-
 from config import SUPPORT_GRP, UPDATE_CHNL
 from DNSCHAT import OWNER, DNSCHAT
 
+# Centralized constants
+SUPPORT_URL = f"https://t.me/{SUPPORT_GRP}"
+UPDATE_URL = f"https://t.me/{UPDATE_CHNL}"
+ADD_BOT_URL = f"https://t.me/{DNSCHAT.username}?startgroup=true"
+HELP_URL = f"https://t.me/{DNSCHAT.username}?start=help"
 
-START_BOT = [
-    [
-        InlineKeyboardButton(
-            text="❖ ᴧᴅᴅ мᴇ ʙᴧʙʏ ❖",
-            url=f"https://t.me/{DNSCHAT.username}?startgroup=true",
-        ),
+# Utility function for styled buttons
+def btn(text: str, **kwargs):
+    return InlineKeyboardButton(text=text, **kwargs)
+
+# Button layouts
+BUTTON_SETS = {
+    "start": [
+        [btn("❖ ᴧᴅᴅ мᴇ ʙᴧʙʏ ❖", url=ADD_BOT_URL)],
+        [btn("• ❍ᴡɴᴇꝛ •", user_id=OWNER), btn("• sᴜᴘᴘᴏꝛᴛ •", url=SUPPORT_URL)],
+        [btn("⌯ ғᴇᴧᴛᴜʀᴇs ⌯", callback_data="HELP")],
     ],
-    [
-        InlineKeyboardButton(text="• ❍ᴡɴᴇꝛ •", user_id=OWNER),
-        InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"https://t.me/{SUPPORT_GRP}"),
+
+    "developer": [
+        [btn("• ❍ᴡɴᴇꝛ •", user_id=OWNER), btn("• sᴜᴘᴘᴏꝛᴛ •", url=SUPPORT_URL)],
+        [btn("✦ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ✦", url=ADD_BOT_URL)],
+        [btn("« ʜᴇʟᴘ »", callback_data="HELP")],
+        [btn("☁️ ᴀʙᴏᴜᴛ ☁️", callback_data="ABOUT")],
     ],
-    [
-        InlineKeyboardButton(text="⌯ ғᴇᴧᴛᴜʀᴇs ⌯", callback_data="HELP"),
+
+    "png": [
+        [btn("• ᴧᴅᴅ мᴇ ʙᴧʙʏ •", url=ADD_BOT_URL)],
+        [btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-]
 
-
-DEV_OP = [
-    [
-        InlineKeyboardButton(text="• ❍ᴡɴᴇꝛ •", user_id=OWNER),
-        InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"https://t.me/{SUPPORT_GRP}"),
+    "back": [
+        [btn("⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK")],
     ],
-    [
-        InlineKeyboardButton(
-            text="✦ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ✦",
-            url=f"https://t.me/{DNSCHAT.username}?startgroup=true",
-        ),
+
+    "help": [
+        [btn("🐳 ᴄʜᴀᴛʙᴏᴛ 🐳", callback_data="CHATBOT_CMD"),
+         btn("🎄 ᴛᴏᴏʟs 🎄", callback_data="TOOLS_DATA")],
+        [btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-    [
-        InlineKeyboardButton(text="« ʜᴇʟᴘ »", callback_data="HELP"),
+
+    "close": [
+        [btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-    [
-        # InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
-        InlineKeyboardButton(text="☁️ ᴀʙᴏᴜᴛ ☁️", callback_data="ABOUT"),
+
+    "chatbot_toggle": [
+        [btn("ᴇɴᴀʙʟᴇ", callback_data="enable_chatbot"),
+         btn("ᴅɪsᴀʙʟᴇ", callback_data="disable_chatbot")],
     ],
-]
 
-PNG_BTN = [
-    [
-        InlineKeyboardButton(
-            text="• ᴧᴅᴅ мᴇ ʙᴧʙʏ •",
-            url=f"https://t.me/{DNSCHAT.username}?startgroup=true",
-        ),
+    "music_back": [
+        [btn("sᴏᴏɴ", callback_data="soom")],
     ],
-    [
-        InlineKeyboardButton(
-            text="⦿ ᴄʟᴏsᴇ ⦿",
-            callback_data="CLOSE",
-        ),
+
+    "s_back": [
+        [btn("⦿ ʙᴀᴄᴋ ⦿", callback_data="SBACK"),
+         btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-]
 
-
-BACK = [
-    [
-        InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK"),
+    "chatbot_back": [
+        [btn("⦿ ʙᴀᴄᴋ ⦿", callback_data="CHATBOT_BACK"),
+         btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-]
 
-
-HELP_BTN = [
-    [
-        InlineKeyboardButton(text="🐳 ᴄʜᴀᴛʙᴏᴛ 🐳", callback_data="CHATBOT_CMD"),
-        InlineKeyboardButton(text="🎄 ᴛᴏᴏʟs 🎄", callback_data="TOOLS_DATA"),
+    "help_start": [
+        [btn("« ʜᴇʟᴘ »", callback_data="HELP"),
+         btn("🐳 ᴄʟᴏsᴇ 🐳", callback_data="CLOSE")],
     ],
-    [
-        InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
+
+    "help_btn": [
+        [btn("« ʜᴇʟᴘ »", url=HELP_URL),
+         btn("⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE")],
     ],
-]
 
-
-CLOSE_BTN = [
-    [
-        InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
+    "about": [
+        [btn("🎄 sᴜᴘᴘᴏʀᴛ 🎄", url=UPDATE_URL),
+         btn("« ʜᴇʟᴘ »", callback_data="HELP")],
+        [btn("🍾 ᴏᴡɴᴇʀ 🍾", user_id=OWNER)],
+        [btn("🐳 ᴜᴘᴅᴀᴛᴇs 🐳", url=UPDATE_URL),
+         btn("⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK")],
     ],
-]
-
-
-CHATBOT_ON = [
-    [
-        InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="enable_chatbot"),
-        InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="disable_chatbot"),
-    ],
-]
-
-
-MUSIC_BACK_BTN = [
-    [
-        InlineKeyboardButton(text="sᴏᴏɴ", callback_data=f"soom"),
-    ],
-]
-
-S_BACK = [
-    [
-        InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="SBACK"),
-        InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
-    ],
-]
-
-
-CHATBOT_BACK = [
-    [
-        InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="CHATBOT_BACK"),
-        InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
-    ],
-]
-
-
-HELP_START = [
-    [
-        InlineKeyboardButton(text="« ʜᴇʟᴘ »", callback_data="HELP"),
-        InlineKeyboardButton(text="🐳 ᴄʟᴏsᴇ 🐳", callback_data="CLOSE"),
-    ],
-]
-
-
-HELP_BUTN = [
-    [
-        InlineKeyboardButton(
-            text="« ʜᴇʟᴘ »", url=f"https://t.me/{DNSCHAT.username}?start=help"
-        ),
-        InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
-    ],
-]
-
-
-ABOUT_BTN = [
-    [
-        InlineKeyboardButton(text="🎄 sᴜᴘᴘᴏʀᴛ 🎄", url="https://t.me/KARTIK_X_UPDATE"),),
-        InlineKeyboardButton(text="« ʜᴇʟᴘ »", callback_data="HELP"),
-    ],
-    [
-        InlineKeyboardButton(text="🍾 ᴏᴡɴᴇʀ 🍾", user_id=OWNER),
-        #   InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ❄️", callback_data="SOURCE"),
-    ],
-    [
-        InlineKeyboardButton(text="🐳 ᴜᴘᴅᴀᴛᴇs 🐳", url=f"https://t.me/KARTIK_X_UPDATE"),
-        InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK"),
-    ],
-]
+}
